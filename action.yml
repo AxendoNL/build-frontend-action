@@ -15,4 +15,4 @@ runs:
     - run: echo Hello 
       shell: powershell
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-     shell: powershell
+      shell: powershell
