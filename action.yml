@@ -8,10 +8,6 @@ inputs:
     description: 'NPM cache dependency path'
     required: true
     default: '**/**.Frontend/package-lock.json'
-#outputs:
-#  random-number:
-#    description: "Random number"
-#    value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
   steps:
@@ -20,13 +16,6 @@ runs:
         node-version: '14'
         cache: 'npm'
         cache-dependency-path: ${{ inputs.cd-path }}
-    # - name: NPM install & Gulp ReleaseBuild
-    #   run: |
-    #         cd *Frontend
-    #         npm install
-    #         npm install gulp-cli
-    #         gulp releaseBuild
-      # shell: powershell
     - name: NPM install
       run: npm install
       working-directory: ${{ inputs.frontend-dir }}
