@@ -17,6 +17,9 @@ runs:
         node-version: '14'
         cache: 'npm'
         cache-dependency-path: ${{ inputs.cd-path }}
+    - name: change to working directory
+      run: cd ${{github.action_path}}
+      shell: powershell
     - name: NPM install
       run: npm install
       shell: powershell
