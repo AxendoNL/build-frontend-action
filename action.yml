@@ -21,7 +21,7 @@ runs:
       run: npm install
       shell: powershell
     - name: Install Gulp 
-      run: npm install -g gulp-cli
+      run: npm install gulp-cli
       shell: powershell
     - name: Run gulp
       run: gulp releaseBuild
