@@ -1,13 +1,10 @@
 name: 'Build frontend'
 description: 'Build frontend files for Umbraco V9'
-defaults:
-  run:
-    shell: powershell
-inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+#inputs:
+#  who-to-greet:  # id of input
+#    description: 'Who to greet'
+#    required: true
+#    default: 'World'
 #outputs:
 #  random-number:
 #    description: "Random number"
@@ -16,4 +13,6 @@ runs:
   using: "composite"
   steps:
     - run: echo Hello 
+      shell: powershell
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+     shell: powershell
