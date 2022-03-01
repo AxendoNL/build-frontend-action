@@ -19,7 +19,7 @@ runs:
         cache-dependency-path: ${{ inputs.cd-path }}
     - name: NPM install & Gulp ReleaseBuild
       run: |
-            cd ${{github.action_path}}
+            cd *Frontend
             npm install
             npm install gulp-cli
             gulp releaseBuild
