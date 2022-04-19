@@ -20,10 +20,10 @@ runs:
       run: npm install
       working-directory: ${{ inputs.frontend-dir }}
       shell: powershell
-    #- name: Install Gulp 
-    #  run: npm install gulp-cli
-    #  working-directory: ${{ inputs.frontend-dir }}
-    #  shell: powershell
+    - name: Install Gulp 
+      run: npm install gulp
+      working-directory: ${{ inputs.frontend-dir }}
+      shell: powershell
     - name: Run gulp
       run: gulp releaseBuild
       working-directory: ${{ inputs.frontend-dir }}
