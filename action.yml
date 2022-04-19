@@ -21,7 +21,7 @@ runs:
       working-directory: ${{ inputs.frontend-dir }}
       shell: powershell
     - name: Install Gulp-cli
-      run: npm install gul-cli
+      run: npm install -g gulp-cli
       working-directory: ${{ inputs.frontend-dir }}
       shell: powershell
     - name: Install Gulp 
