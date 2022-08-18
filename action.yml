@@ -6,16 +6,26 @@ inputs:
     required: true
   cd-path:
     description: 'NPM cache dependency path'
-    required: true
-    default: '**/**.Frontend/npm-shrinkwrap.json'
+    required: false
 runs:
   using: "composite"
   steps:
+    env:
+        cd-path-default: '**/**.Frontend/npm-shrinkwrap.json'
+    if: inputs.cd-path != ''
+    name: Run with cd-path ${{inputs.cd-path}}
     - uses: actions/setup-node@v3
       with:
         node-version: '12'
         cache: 'npm'
         cache-dependency-path: ${{ inputs.cd-path }}
+    if: inputs.cd-path == ''
+    name: Run with cd-path default
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '12'
+        cache: 'npm'
+        cache-dependency-path: ${{ cd-path-default }}
     - name: NPM install
       run: npm install
       working-directory: ${{ inputs.frontend-directory }}
