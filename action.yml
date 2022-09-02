@@ -1,5 +1,5 @@
 name: 'Build frontend'
-description: 'Build frontend files for Umbraco V9'
+description: 'Build frontend files for Umbraco V10'
 inputs:
   frontend-directory:
     description: 'Path to the frontend directory'
