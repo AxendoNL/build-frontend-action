@@ -20,8 +20,7 @@ runs:
   using: "composite"
   steps:
     ### Get latest git commit with changes to frontend project
-    - id: FRONTEND_HASH
-      #run: echo "::set-output name=hash::$(git log -1 --pretty=format:'%h' --follow '${{ inputs.frontend-directory }}')"    
+    - id: FRONTEND_HASH 
       run: echo "hash=$(git log -1 --pretty=format:'%h' --follow '${{ inputs.frontend-directory }}')" >> $env:GITHUB_OUTPUT # AXDEVOPS-16: replacement for set-output     
       shell: powershell
       
