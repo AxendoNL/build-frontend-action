@@ -21,7 +21,8 @@ runs:
   steps:
     ### Get latest git commit with changes to frontend project
     - id: FRONTEND_HASH
-      run: echo "::set-output name=hash::$(git log -1 --pretty=format:'%h' --follow '${{ inputs.frontend-directory }}')"       
+      #run: echo "::set-output name=hash::$(git log -1 --pretty=format:'%h' --follow '${{ inputs.frontend-directory }}')"    
+      run: echo "hash=$(git log -1 --pretty=format:'%h' --follow '${{ inputs.frontend-directory }}')" >> $GITHUB_OUTPUT # AXDEVOPS-16: replacement for set-output     
       shell: powershell
       
     ### First make sure the directory assets exists, this is needed or cache action will throw an error
