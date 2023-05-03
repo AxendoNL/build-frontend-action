@@ -41,7 +41,7 @@ runs:
     - uses: actions/setup-node@v3
       if: steps.CACHE_FRONTEND.outputs.cache-hit != 'true'
       with:
-        node-version: '12'
+        node-version: '16'
         cache: 'npm'
         cache-dependency-path: ${{ inputs.cd-path == '' && '**/**.Frontend/npm-shrinkwrap.json' || inputs.cd-path }}
     
