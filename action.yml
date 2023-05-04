@@ -43,7 +43,7 @@ runs:
       with:
         node-version: '16'
         cache: 'npm'
-        cache-dependency-path: ${{ inputs.cd-path == '' && '**/**.Frontend/npm-shrinkwrap.json' || inputs.cd-path }}
+        cache-dependency-path: ${{ inputs.cd-path == '' && '**/**.Frontend/package-lock.json' || inputs.cd-path }}
     
     - name: NPM install
       if: steps.CACHE_FRONTEND.outputs.cache-hit != 'true'
