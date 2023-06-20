@@ -65,3 +65,10 @@ runs:
       run: gulp releaseBuild
       working-directory: ${{ inputs.frontend-directory }}
       shell: powershell
+    - name: Save frontend cache artifact
+      if: steps.CACHE_FRONTEND.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v3
+      id: CACHE_FRONTEND_ARTIFACT
+      with:
+        path: "${{ inputs.app-path }}\\wwwroot\\${{ inputs.assets-folder }}"
+        key: frontend-cache-${{steps.FRONTEND_HASH.outputs.hash}}
